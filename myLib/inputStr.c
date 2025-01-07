@@ -36,7 +36,7 @@ void inputStr(char *string, int buff, char *var)
 		index++;
 	}
 
-	if (index > buff)
+	if (index > buff - 1)
 	{
 		freeBuffAfterFgets();
 	}

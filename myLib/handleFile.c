@@ -32,6 +32,6 @@ void setContent(char *fullFileContent, char *link)
                      "</head>"
                      "</html>";
 
-  stringConcat(first, link, fullFileContent, 350);
-  stringConcat(fullFileContent, end, fullFileContent, 350);
+  stringConcat(first, link, fullFileContent, 500);
+  stringConcat(fullFileContent, end, fullFileContent, 500);
 }

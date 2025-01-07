@@ -3,14 +3,16 @@
 #include <string.h>
 #include "my_libs.h"
 
-void inputOne(char *msg, char *dest)
+void inputOne(char *msg, char *dest , int buffer)
 {
 	// requtie input balnk space not valid
 	//if type ".exit" exit the program
 	while (1)
 	{
-		inputStr(msg, 50, dest);
+		inputStr(msg, buffer, dest);
 		trimStr(dest);
+		strReplace(dest , '\0'); //read doc
+		
 		if (strlen(dest) != 0)
 		{
 			if (strCom(dest, ".exit") == 1)
@@ -31,12 +33,13 @@ void main()
 	WEBLINK fullFile;
 	WEBLINKDATA fileData;
 
-	inputOne("  file name : ", fileData.name);
-	inputOne("  website link : ", fileData.link);
+	inputOne("  file name : ", fileData.name,50);
+	inputOne("  website link : ", fileData.link,100);
 
 	setExtension(fullFile.fullName, fileData.name);
 	setContent(fullFile.content, fileData.link);
-
+	
+	// printf(fullFile.content);
 	createHtmFile(&fullFile);
 
 	endTheProgram(1);

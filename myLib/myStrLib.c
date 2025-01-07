@@ -118,3 +118,17 @@ int stringConcat(const char *str1, const char *str2, char *dest, const int buffS
 	dest[indexDest] = '\0';
 	return 1;
 }
+
+
+
+void strReplace(char * dest , char c)
+{	
+	int strLen = strlen(dest) + 1  ;
+	for (int i = 0; i < strLen; i++)
+	{
+		if (dest[i] == '\"' || dest [i] == '\'')
+		{
+			dest[i] = '_';
+		}
+	}
+}
