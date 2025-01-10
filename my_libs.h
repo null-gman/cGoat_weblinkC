@@ -14,7 +14,7 @@ typedef struct
 
 //
 
-void inputStr(char *string, int buff, char *var); //input link pyton
+int inputStr(char *string, char *dest, int buff); //input link pyton
 
 // str funs
 int trimStr(char *string); //trim str
