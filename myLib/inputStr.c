@@ -16,29 +16,37 @@ void freeBuffAfterFgets()
 	}
 }
 
-void inputStr(char *string, int buff, char *var)
+
+int inputStr(char *string, char *dest, int buff)
 {
+	// if type the buffer is 3 the max char you can put is 1
+	//  buffer - 2 "ok?!"
 	printf("%s", string);
-	fgets(var, buff, stdin);
-	
-	int index = 0;
-	while (1)
+	fgets(dest, buff, stdin);
+
+	int isOverFlow = 0;
+
+	for (int i = 0; i < buff - 1; i++)
 	{
-		if ((int) var[index] == 10 )
+		if (dest[i] == '\0' || dest[i] == '\n')
 		{
-			var[index] = ' ';
-		}
-		if (!var[index])
-		{
-			index++;
+			dest[i] = '\0';
 			break;
 		}
-		index++;
+		if (i == buff - 2 && dest[i] != '\0')
+		{
+			isOverFlow = 1;
+		}
 	}
-
-	if (index > buff - 1)
+	
+	// printf("buffer size : %d\n", buff);
+	if (isOverFlow == 1)
 	{
+		// printf("overFlow status : %d\n", isOverFlow);
+
 		freeBuffAfterFgets();
+		return 0;
 	}
+	return 1;
 }
 
