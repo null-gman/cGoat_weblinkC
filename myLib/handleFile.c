@@ -4,8 +4,8 @@
 
 void setExtension(char * fullFileName, char *fileName)
 {
-  stringConcat(fileName, ".", fullFileName, 100);
-  stringConcat(fullFileName, "html", fullFileName, 100);
+  stringConcat(fileName, ".", fullFileName, FULL_FILE_NAME_SIZE);
+  stringConcat(fullFileName, "html", fullFileName, FULL_FILE_NAME_SIZE);
 }
 
 void setContent(char *fullFileContent, char *link)
@@ -32,6 +32,6 @@ void setContent(char *fullFileContent, char *link)
                      "</head>"
                      "</html>";
 
-  stringConcat(first, link, fullFileContent, 500);
-  stringConcat(fullFileContent, end, fullFileContent, 500);
+  stringConcat(first, link, fullFileContent, HTML_FILE_SIZE);
+  stringConcat(fullFileContent, end, fullFileContent, HTML_FILE_SIZE);
 }

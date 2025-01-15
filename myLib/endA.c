@@ -1,9 +1,8 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "../my_libs.h"
 
 void endTheProgram(int status)
 {
-  printf("\npress enter to end this fucking program ... ");
+  printYellow("\n press enter to end this program ... ");
   getchar();
 
   if (status == 1)

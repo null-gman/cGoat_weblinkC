@@ -1,46 +1,49 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "my_libs.h"
 
-void inputOne(char *msg, char *dest , int buffer)
+//to must type somtiong and not go over the buffer
+void inputReq(char *msg, char *dest, int buffer)
 {
-	// requtie input balnk space not valid
-	//if type ".exit" exit the program
 	while (1)
 	{
-		inputStr(msg, buffer, dest);
+		int status = inputStr(msg, dest, buffer);
 		trimStr(dest);
-		strReplace(dest , '\0'); //read doc
-		
-		if (strlen(dest) != 0)
-		{
-			if (strCom(dest, ".exit") == 1)
-			{
-				endTheProgram(1);
-			}
-			break;
+		formatInput(dest);
+		char errMsg[99];
+		if (status == -1)
+		{	
+			printRed(" >> overFlow\n");	
+			continue;
 		}
-		// printf("\ttype somthing!..\n");
+
+		if (status == 0)
+		{	
+			printRed(" >> type somsing\n");
+			continue;
+		}
+
+		if (strCom(dest, ".exit") == 1)
+		{
+			endTheProgram(1);
+		}
+
+		break;
 	}
 }
 
 void main()
 {
-
-	printf("\033[1;31m welcom to weblinkC !!!! \033[0m\n\n");
-
+	enableANSI();
+	printMagenta("  welcom to weblinkC !!!!\n");
+	printMagenta("  #######################\n\n");
 	WEBLINK fullFile;
-	WEBLINKDATA fileData;
+	INPUT_DATA fileData;
 
-	inputOne("  file name : ", fileData.name,50);
-	inputOne("  website link : ", fileData.link,100);
+	inputReq("    file name : ", fileData.name, 50);
+	inputReq("    website link : ", fileData.link, 100);
 
 	setExtension(fullFile.fullName, fileData.name);
 	setContent(fullFile.content, fileData.link);
-	
-	// printf(fullFile.content);
-	createHtmFile(&fullFile);
 
+	createHtmFile(&fullFile);
 	endTheProgram(1);
 }

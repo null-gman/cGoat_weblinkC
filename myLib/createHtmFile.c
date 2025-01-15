@@ -12,11 +12,11 @@ void createHtmFile (WEBLINK * FullFile)
 
   if (!pHtmFileWeblink)
   {
-    printf("error with name of file , check name or try another .\n >> programe exit ..\n");
+    printRed(" >>error with name of file , check name or try another .");
     endTheProgram(0);
   }
   fprintf(pHtmFileWeblink,FullFile->content);
 
-  printf("file writen\n");
+  printGreen(" >> file writen\n");
   fclose(pHtmFileWeblink);
 }

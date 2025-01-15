@@ -7,13 +7,12 @@ int trimStr(char *string)
 	unsigned int stringLen = strlen(string); // get the number of chars of the string
 	if (strlen == 0)
 	{
-		string [0] = '\0';
+		string[0] = '\0';
 		return 1;
 	}
 
 	char newString[stringLen]; // will contain the trimed string
 	unsigned int indexForNewString = 0;
-
 
 	int bool = 0;
 	for (int i = 0; i < stringLen; i++)
@@ -25,12 +24,11 @@ int trimStr(char *string)
 	}
 	if (bool == 0)
 	{
-		string [0] = '\0';
+		string[0] = '\0';
 		return 1;
 	}
 	unsigned int fisrtCharAtString = 0; // fist char index that not white space at string
 	unsigned int lastCharAtString = 0;	// last char index that not white space at string
-
 
 	// get the first char index that not a white space
 	for (unsigned int i = 0; i < stringLen + 1; i++)
@@ -67,7 +65,6 @@ int trimStr(char *string)
 	}
 
 	return 1;
-
 }
 
 int strCom(char *str1, char *str2)
@@ -96,7 +93,7 @@ int stringConcat(const char *str1, const char *str2, char *dest, const int buffS
 	unsigned short str1Size = strlen(str1);
 	unsigned short str2Size = strlen(str2);
 
-	if (str1Size + str2Size + 1> buffSize)
+	if (str1Size + str2Size + 1 > buffSize)
 	{
 		return 0;
 	}
@@ -119,16 +116,82 @@ int stringConcat(const char *str1, const char *str2, char *dest, const int buffS
 	return 1;
 }
 
-
-
-void strReplace(char * dest , char c)
-{	
-	int strLen = strlen(dest) + 1  ;
+void formatInput(char *dest)
+{
+	int strLen = strlen(dest) + 1;
 	for (int i = 0; i < strLen; i++)
 	{
-		if (dest[i] == '\"' || dest [i] == '\'')
+		if (dest[i] == '\"' || dest[i] == '\'')
 		{
 			dest[i] = '_';
 		}
 	}
 }
+
+// int numToStr(const int num, char *dest, int buff)
+// {
+// 	int ten = 10;
+// 	int len = 0;
+
+// 	while (1)
+// 	{
+// 		if (num / ten == 0)
+// 		{
+// 			len++;
+// 			break;
+// 		}
+
+// 		ten *= 10;
+// 		len++;
+// 	}
+
+// 	int stringSizeMustBe = len + 1;
+// 	if (buff < stringSizeMustBe)
+// 	{
+// 		return -1;
+// 	}
+	
+// 	for (int i = 0; i < buff; i++)
+// 	{
+// 		dest[i] = toChar();
+// 	}
+// 	printf("len : %d\n", len);
+// }
+
+// void numToChar(int num)
+// {
+// 	switch (num)
+// 	{
+// 	case 0:
+// 		return '0';
+// 	case 1:
+// 		return '1';
+
+// 	case 2:
+// 		return '2';
+
+// 	case 3:
+// 		return '3';
+
+// 	case 4:
+// 		return '4';
+
+// 	case 5:
+// 		return '5';
+
+// 	case 6:
+// 		return '6';
+
+// 	case 7:
+// 		return '7';
+
+// 	case 8:
+// 		return '8';
+
+// 	case 9:
+// 		return '9';
+
+// 	default:
+// 		return '\0';
+// 	}
+// }
