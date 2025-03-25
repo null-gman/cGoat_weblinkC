@@ -1,34 +1,4 @@
-#include "my_libs.h"
-
-//to must type somtiong and not go over the buffer
-void inputReq(char *msg, char *dest, int buffer)
-{
-	while (1)
-	{
-		int status = inputStr(msg, dest, buffer);
-		trimStr(dest);
-		formatInput(dest);
-		char errMsg[99];
-		if (status == -1)
-		{	
-			printRed(" >> overFlow\n");	
-			continue;
-		}
-
-		if (status == 0)
-		{	
-			printRed(" >> type somsing\n");
-			continue;
-		}
-
-		if (strCom(dest, ".exit") == 1)
-		{
-			endTheProgram(1);
-		}
-
-		break;
-	}
-}
+#include "./my_libs.h"
 
 void main()
 {
