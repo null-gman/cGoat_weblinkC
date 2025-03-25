@@ -8,8 +8,10 @@ bin := ./CwebLink.exe
 all : $(bin)
 
 
-$(bin) : ./objs/createHtmFile.o ./objs/printC.o ./objs/myStrLib.o ./objs/inputStr.o ./objs/endA.o
+$(bin) : ./objs/createHtmFile.o ./objs/printC.o ./objs/myStrLib.o ./objs/inputStr.o ./objs/endA.o ./objs/main.o
 
+./objs/main.o : ./src/main.c
+	$(cc) $(cflages) $(headers) -c $< -o $@
 ./objs/createHtmFile.o : ./src/createHtmFile.c
 	$(cc) $(cflages) $(headers) -c $< -o $@
 ./objs/printC.o : ./src/printC.c
