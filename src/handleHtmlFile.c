@@ -1,6 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "../my_libs.h"
+#include "types.h"
+#include "myStrLib.h"
 
 void setExtension(char * fullFileName, char *fileName)
 {

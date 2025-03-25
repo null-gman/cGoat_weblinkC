@@ -1,4 +1,7 @@
 /.vscode
 /.clangd
-weblinkC.exe
-app.exe
+
+*.exe
+*.html
+*.htm
+/objs/*

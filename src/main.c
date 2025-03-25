@@ -1,19 +1,22 @@
-#include "./my_libs.h"
+#include <stdio.h>
+#include "inputStr.h"
+#include "types.h"
+#include "handleHtmlFile.h"
+#include "writeFile.h"
+#include "endProgram.h"
 
-void main()
+int main()
 {
-	enableANSI();
-	printMagenta("  welcom to weblinkC !!!!\n");
-	printMagenta("  #######################\n\n");
-	WEBLINK fullFile;
-	INPUT_DATA fileData;
+   	WEBLINK fullFile;
+   	INPUT_DATA fileData;
 
-	inputReq("    file name : ", fileData.name, 50);
-	inputReq("    website link : ", fileData.link, 100);
+   	inputReq("    file name : ", fileData.name, 50);
+   	inputReq("    website link : ", fileData.link, 100);
 
-	setExtension(fullFile.fullName, fileData.name);
-	setContent(fullFile.content, fileData.link);
+   	setExtension(fullFile.fullName, fileData.name);
+   	setContent(fullFile.content, fileData.link);
+    writeFile(fullFile.content, fullFile.fullName);
 
-	createHtmFile(&fullFile);
-	endTheProgram(1);
+    endTheProgram(0);
+    return 0;
 }

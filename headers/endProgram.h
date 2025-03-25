@@ -1,0 +1,2 @@
+
+void endTheProgram(int status);
