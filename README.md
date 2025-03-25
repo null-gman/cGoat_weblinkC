@@ -8,7 +8,7 @@ is a CLI tool to create a websites shortcuts by creating a **HTML** file that re
 ## compile 
 1. you have **Make** right?
 2. run : `make folder` to creat **/objs/** folder 
-3. run : `make`  to compile it
+3. run : `make`  to compile the **source code**
 4. run : `make play`  to run the program
    
 ## usage
