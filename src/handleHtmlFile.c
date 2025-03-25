@@ -1,10 +1,10 @@
 #include "types.h"
 #include "myStrLib.h"
-
+#include "endProgram.h"
 void setExtension(char * fullFileName, char *fileName)
 {
-  stringConcat(fileName, ".", fullFileName, FULL_FILE_NAME_SIZE);
-  stringConcat(fullFileName, "html", fullFileName, FULL_FILE_NAME_SIZE);
+   stringConcat(fileName, ".", fullFileName, FULL_FILE_NAME_SIZE);
+   stringConcat(fullFileName, "html", fullFileName, FULL_FILE_NAME_SIZE);
 }
 
 void setContent(char *fullFileContent, char *link)

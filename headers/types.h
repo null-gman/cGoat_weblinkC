@@ -1,9 +1,9 @@
 // sizes of file details
 #define FILE_NAME_SIZE  50
-#define FULL_FILE_NAME_SIZE  55
+#define FULL_FILE_NAME_SIZE  56 /*for '.html'*/
+#define LINK_SIZE  200
 
-#define LINK_SIZE  100
-#define HTML_FILE_SIZE  500
+#define HTML_FILE_SIZE  600
 
 
 typedef struct
